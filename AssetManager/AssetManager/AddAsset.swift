@@ -78,7 +78,7 @@ struct AddAsset: View {
     
     var body: some View{
         
-        NavigationView {
+        //NavigationView {
             
             VStack {
                 Picker(selection: $selectedIndex, label: Text("")) {
@@ -131,7 +131,7 @@ struct AddAsset: View {
                 .font(Font.body.bold())
             }.padding(.bottom, 5)
                      
-        }
+        //}
     }
 }
 
