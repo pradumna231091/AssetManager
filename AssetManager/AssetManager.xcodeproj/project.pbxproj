@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0615740B230D0F4B002EEF89 /* AddAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0615740A230D0F4B002EEF89 /* AddAsset.swift */; };
 		574BA949230A791D0089352E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BA948230A791D0089352E /* LoginView.swift */; };
 		57B3D9302302DBFB00E25581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3D92F2302DBFB00E25581 /* AppDelegate.swift */; };
 		57B3D9322302DBFB00E25581 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3D9312302DBFB00E25581 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0615740A230D0F4B002EEF89 /* AddAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAsset.swift; sourceTree = "<group>"; };
 		574BA948230A791D0089352E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		57B3D92C2302DBFB00E25581 /* AssetManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B3D92F2302DBFB00E25581 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				574BA948230A791D0089352E /* LoginView.swift */,
 				57F5D389230BD53A003D1992 /* RegisterView.swift */,
 				57B3D9362302DBFB00E25581 /* ContentView.swift */,
+				0615740A230D0F4B002EEF89 /* AddAsset.swift */,
 				57EEA6D523042AC90045F49C /* Assets Contents */,
 				57B3D9382302DBFD00E25581 /* Assets.xcassets */,
 				57B3D93D2302DBFD00E25581 /* LaunchScreen.storyboard */,
@@ -187,6 +190,7 @@
 				57B3D9352302DBFB00E25581 /* AssetManager.xcdatamodeld in Sources */,
 				57EEA6D22303C5910045F49C /* DatabaseManager.swift in Sources */,
 				57F5D38A230BD53A003D1992 /* RegisterView.swift in Sources */,
+				0615740B230D0F4B002EEF89 /* AddAsset.swift in Sources */,
 				57B3D9372302DBFB00E25581 /* ContentView.swift in Sources */,
 				57B3D9322302DBFB00E25581 /* SceneDelegate.swift in Sources */,
 			);
