@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let controller = UIHostingController(rootView: ContentView())
+            let controller = UIHostingController(rootView: LoginView().background(Color.black))
             controller.view.backgroundColor = UIColor.black
             window.rootViewController = controller
             self.window = window

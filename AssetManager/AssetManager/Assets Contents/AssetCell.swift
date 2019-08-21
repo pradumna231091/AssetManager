@@ -21,8 +21,7 @@ struct AssetCell: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("\(model.modelNo)") .font(.title)
                 HStack(alignment: .center, spacing: 10) {
-                    Text("\(model.hostName)") .font(.subheadline) .foregroundColor(Color.gray)
-                    Spacer()
+                    Text("\(model.hostName),") .font(.subheadline) .foregroundColor(Color.gray)
                     Text("\("Serial Number: \(model.serialNumber)")") .font(.subheadline) .foregroundColor(Color.gray)
                     }
             }
