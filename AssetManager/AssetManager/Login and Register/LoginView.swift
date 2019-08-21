@@ -32,7 +32,7 @@ struct LoginView: View {
                             
                             .padding(.bottom, 50)
                         
-                        NavigationLink(destination: ContentView()) {
+                        NavigationLink(destination: DashboardView()) {
                             Text("        Login        ") .foregroundColor(Color.black) .padding(.all, 10) .font(.subheadline) .clipShape(RoundedRectangle(cornerRadius: 15))
                                 .overlay(RoundedRectangle(cornerRadius: 15) .stroke(lineWidth: 1).foregroundColor(Color.black))
                         }
