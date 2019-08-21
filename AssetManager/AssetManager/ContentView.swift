@@ -42,40 +42,40 @@ struct ContentView: View {
     
     var body: some View {
         //NavigationView {
-            VStack {
-                HStack {
-                    TextField("Enter something to search...", text: $name) .padding(EdgeInsets(top: 0, leading: leftRightPaddingConstantForTextFields, bottom: 0, trailing: leftRightPaddingConstantForTextFields)) .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                List {
-                    ForEach(listArray) { model in                        
-                        AssetCell(model: model, isAllocated: self.randomBool())
-                    }
+        VStack {
+            HStack {
+                TextField("Enter something to search...", text: $name) .padding(EdgeInsets(top: 0, leading: leftRightPaddingConstantForTextFields, bottom: 0, trailing: leftRightPaddingConstantForTextFields)) .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            List {
+                ForEach(listArray) { model in
+                    AssetCell(model: model, isAllocated: self.randomBool())
                 }
             }
-            .navigationBarTitle(Text("Assets List"), displayMode: .large)
-            .navigationBarItems(trailing:
-                VStack {
-                    HStack {
-                        Button(action: {
-                            print("Help tapped!")
-                        }) {
-                            Image("filter")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 25, height: 25)
-                                .clipped()
-                        }
-                        Button(action: {
-                            self.addAssets()
-                        }) {
-                            Image("add")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 25, height: 25)
-                                .clipped()
-                        }
+        }
+        .navigationBarTitle(Text("Assets List"), displayMode: .large)
+        .navigationBarItems(trailing:
+            VStack {
+                HStack {
+                    Button(action: {
+                        print("Help tapped!")
+                    }) {
+                        Image("filter")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .clipped()
                     }
-            })
+                    Button(action: {
+                        self.addAssets()
+                    }) {
+                        Image("add")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .clipped()
+                    }
+                }
+        })
         //}
     }
     

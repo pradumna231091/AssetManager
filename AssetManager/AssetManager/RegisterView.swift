@@ -41,10 +41,17 @@ struct RegisterView: View {
                             
                             .padding(.bottom, 50)
                         
-                        NavigationLink(destination: ContentView()) {
-                            Text("        Register        ") .foregroundColor(Color.black) .padding(.all, 10) .font(.subheadline) .clipShape(RoundedRectangle(cornerRadius: 15))
+                            Button(action: {
+                                print("Register tapped!")
+                            }) {
+                                Text("        Register        ") .foregroundColor(Color.black) .padding(.all, 10) .font(.subheadline) .clipShape(RoundedRectangle(cornerRadius: 15))
                                 .overlay(RoundedRectangle(cornerRadius: 15) .stroke(lineWidth: 1).foregroundColor(Color.black))
-                        }
+                            }
+
+//                        NavigationLink(destination: ContentView()) {
+//                            Text("        Register        ") .foregroundColor(Color.black) .padding(.all, 10) .font(.subheadline) .clipShape(RoundedRectangle(cornerRadius: 15))
+//                                .overlay(RoundedRectangle(cornerRadius: 15) .stroke(lineWidth: 1).foregroundColor(Color.black))
+//                        }
                         .padding(.bottom, 15)
 //                        Text("Already have an account?") .font(.subheadline) .foregroundColor(.gray)
                         
