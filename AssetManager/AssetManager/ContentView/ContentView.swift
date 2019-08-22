@@ -70,7 +70,7 @@ struct ContentView: View {
             VStack {
                 HStack {
                     
-                    NavigationLink(destination: AddAsset()) {
+                    NavigationLink(destination: AssetDetails()) {
                         Image("add")
                             .resizable()
                             .scaledToFit()
