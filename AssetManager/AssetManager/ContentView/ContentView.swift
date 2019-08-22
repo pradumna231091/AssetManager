@@ -25,6 +25,8 @@ struct Asset: Identifiable {
     var descriptionDetails:String
     var warrantyStartDate:String
     var invoiceNo:String
+    
+    var allocStatus:Bool
 }
 
 struct StatusView : View {
@@ -40,22 +42,26 @@ struct ContentView: View {
     @State var name: String = ""
     @State var update: Bool = false
     @State var assetModel = AssetModel()
-    
+//    var allocStatus: Bool = true
     var body: some View {
+        
         VStack {
             HStack {
                 TextField("Enter something to search...", text: $name) .padding(EdgeInsets(top: 0, leading: leftRightPaddingConstantForTextFields, bottom: 0, trailing: leftRightPaddingConstantForTextFields)) .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             List {
-                
+                 
                 ForEach(assetModel.listArray) { model in
-                    NavigationLink(destination: AssetDetails()) {
+                    
                     HStack(alignment: .center, spacing: 10) {
-                        if self.randomBool() == true {
+                        
+                        if model.allocStatus == true {
                             StatusView() .background(Color.red)
                         } else {
                             StatusView() .background(Color.green)
                         }
+                        NavigationLink(destination: AssetDetails(allocationStatus: model.allocStatus)) {
+                            
                         VStack(alignment: .leading, spacing: 4) {
                             Text("\(model.modelNo)") .font(.title)
                             HStack(alignment: .center, spacing: 10) {
@@ -68,7 +74,7 @@ struct ContentView: View {
                 }
             }
         }
-        .navigationBarTitle(Text("Assets List"), displayMode: .large)
+        .navigationBarTitle(Text("Assets List"), displayMode: .inline)
         .navigationBarItems(trailing:
             VStack {
                 HStack {
@@ -95,10 +101,6 @@ struct ContentView: View {
     
     
     
-    fileprivate func randomBool() -> Bool {
-        let randomNo = Int.random(in: 0...1)
-        return randomNo % 2 == 0 ? true : false
-    }
 }
 
 #if DEBUG

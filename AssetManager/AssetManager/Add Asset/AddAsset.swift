@@ -38,23 +38,29 @@ struct AssetDetails:View {
         @State var category_notifier: String = ""
         @State var asset_id_notifier: String = ""
         @State var selectedIndex: Int = 0
+        @State var allocationStatus:Bool
         var body: some View{
-
-                VStack {
-                    Picker(selection: $selectedIndex, label: Text("")) {
-                        Text("Asset Details").tag(0)
-                        Text("User Details").tag(1)
-                        
-                    }.pickerStyle(SegmentedPickerStyle())
-                     .padding(.all)
-                    if selectedIndex == 0 {
-                        AddAsset()
-                    }else if selectedIndex == 1 {
-                       AddUser()
-                    }
-                 
-                }.padding(.bottom, 5)
             
+                VStack {
+                    if allocationStatus == true{
+                                   Picker(selection: $selectedIndex, label: Text("")) {
+                                       Text("Asset Details").tag(0)
+                                       Text("User Details").tag(1)
+                                       
+                                   }.pickerStyle(SegmentedPickerStyle())
+                                    .padding(.all)
+                                   if selectedIndex == 0 {
+                                       AddAsset()
+                                   }else if selectedIndex == 1 {
+                                      AddUser()
+                                   }
+                                
+                               }else{
+                                AddAsset()
+                              }
+                    
+            }.padding(.bottom, 5)
+               
     }
 }
 
