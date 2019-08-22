@@ -50,14 +50,31 @@ struct AssetDetails:View {
                                    }.pickerStyle(SegmentedPickerStyle())
                                     .padding(.all)
                                    if selectedIndex == 0 {
-                                       AddAsset()
+                                       AddAsset(isNewAsset: false)
                                    }else if selectedIndex == 1 {
-                                      AddUser()
-                                   }
-                                
-                               }else{
-                                AddAsset()
-                              }
+                                      AddUser(allocStatus: allocationStatus)
+                        }
+                        Button(action: {
+                            print("Deallocate tapped!")
+                        }) {
+                            Text("Deallocate")
+                                .frame(width: 150, height: 40, alignment: .center)
+                        }.background(Color.blue)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .font(Font.body.bold())
+                        }else{
+                                AddAsset(isNewAsset: false)
+                        
+                        NavigationLink(destination:AddUser(allocStatus: allocationStatus)){
+                        Text("Assign")
+                            .frame(width: 150, height: 40, alignment: .center)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                            .foregroundColor(.white)
+                            .font(Font.body.bold())
+                        }
+                    }
                     
             }.padding(.bottom, 5)
                
@@ -68,7 +85,8 @@ struct AddAsset: View {
     
     @State var category_notifier: String = ""
     @State var asset_id_notifier: String = ""
-
+    @State var isNewAsset:Bool 
+    
     @State var assetArr : [AddAsset_User_Model] = [
         AddAsset_User_Model( title: "Category", text: "", placeholder: "category",id: 0),
         AddAsset_User_Model(title: "Asset ID", text: "", placeholder: "AssetID",id: 1),
@@ -112,20 +130,20 @@ struct AddAsset: View {
                                 .clipped()
                                 .scaledToFit()
                     })
-                
-                Button(action: {
-                    print("save tapped!")
-                }) {
-                    Text("Save")
-                        .frame(width: 150, height: 40, alignment: .center)
+                if isNewAsset == true{
+                    Button(action: {
+                            print("Save tapped!")
+                        }) {
+                            Text("Save")
+                                .frame(width: 150, height: 40, alignment: .center)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                                .foregroundColor(.white)
+                                .font(Font.body.bold())
+                    }
                 }
-                    
-                .background(Color.blue)
-                .cornerRadius(10)
-                .foregroundColor(.white)
-                .font(Font.body.bold())
+                
             }.padding(.bottom, 5)
-
     }
 }
 
@@ -133,7 +151,7 @@ struct AddUser: View {
     
     @State var category_notifier: String = ""
     @State var asset_id_notifier: String = ""
-    
+     @State var allocStatus:Bool
     @State var userArr : [AddAsset_User_Model] = [
         AddAsset_User_Model( title: "Emp Name", text: "", placeholder: "Emp Name",id: 0),
         AddAsset_User_Model(title: "Emp no", text: "", placeholder: "Emp no",id: 1),
@@ -159,17 +177,21 @@ struct AddUser: View {
                     
                 }.listRowInsets(EdgeInsets())
                 .navigationBarTitle(Text("User Details") , displayMode: .inline)
-            Button(action: {
-                               print("save tapped!")
-                           }) {
-                               Text("Save")
-                                   .frame(width: 150, height: 40, alignment: .center)
-                           }
-                               
-                           .background(Color.blue)
-                           .cornerRadius(10)
-                           .foregroundColor(.white)
-                           .font(Font.body.bold())
+                
+                if allocStatus == true{
+
+                }else{
+                    Button(action: {
+                                                  print("save tapped!")
+                                              }) {
+                                                  Text("Save")
+                                                      .frame(width: 150, height: 40, alignment: .center)
+                                              }.background(Color.blue)
+                                              .cornerRadius(10)
+                                              .foregroundColor(.white)
+                                              .font(Font.body.bold())
+                }
+           
             }.padding(.bottom, 5)
             
     }
