@@ -88,6 +88,7 @@ struct AddAsset: View {
     @State var category_notifier: String = ""
     @State var asset_id_notifier: String = ""
     @State var isNewAsset:Bool 
+     @State private var showingAlert:Bool = false
     
     @State var assetArr : [AddAsset_User_Model] = [
         AddAsset_User_Model( title: "Category", text: "", placeholder: "category",id: 0),
@@ -106,8 +107,7 @@ struct AddAsset: View {
         AddAsset_User_Model( title: "Invoice No.", text: "", placeholder: "InvoiceNo",id: 13)
         
     ]
-    
-    
+   
     var body: some View{
             
             VStack {
@@ -133,27 +133,45 @@ struct AddAsset: View {
                                 .scaledToFit()
                     })
                 if isNewAsset == true{
+//                    Button(action: {
+//                            print("Save tapped!")
+//                        }) {
+//                            Text("Save")
+//                                .frame(width: 150, height: 40, alignment: .center)
+//                                .background(Color.blue)
+//                                .cornerRadius(10)
+//                                .foregroundColor(.white)
+//                                .font(Font.body.bold())
+//                    }
+                   
                     Button(action: {
-                            print("Save tapped!")
-                        }) {
-                            Text("Save")
-                                .frame(width: 150, height: 40, alignment: .center)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                                .foregroundColor(.white)
-                                .font(Font.body.bold())
+                        self.showingAlert = true
+                    }) {
+                        Text("Save")
+                    }.frame(width: 150, height: 40, alignment: .center)
+                                                    .background(Color.blue)
+                                                    .cornerRadius(10)
+                                                    .foregroundColor(.white)
+                                                    .font(Font.body.bold())
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Do you want to assign it to Someone?"), primaryButton:.default(Text("Yes")) , secondaryButton: .cancel())
                     }
+                
                 }
                 
             }.padding(.bottom, 5)
     }
+
 }
+
 
 struct AddUser: View {
     
     @State var category_notifier: String = ""
     @State var asset_id_notifier: String = ""
-     @State var allocStatus:Bool
+    @State var allocStatus:Bool
+   
+    
     @State var userArr : [AddAsset_User_Model] = [
         AddAsset_User_Model( title: "Emp Name", text: "", placeholder: "Emp Name",id: 0),
         AddAsset_User_Model(title: "Emp no", text: "", placeholder: "Emp no",id: 1),
@@ -183,15 +201,16 @@ struct AddUser: View {
                 if allocStatus != true{
                     Button(action: {
                         print("save tapped!")
-                        
+
                     }) {
                         Text("Save")
                             .frame(width: 150, height: 40, alignment: .center)
-                        
+
                     }.background(Color.blue)
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .font(Font.body.bold())
+                    
                 }
            
             }.padding(.bottom, 5)
