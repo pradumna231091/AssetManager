@@ -47,7 +47,9 @@ struct ContentView: View {
                 TextField("Enter something to search...", text: $name) .padding(EdgeInsets(top: 0, leading: leftRightPaddingConstantForTextFields, bottom: 0, trailing: leftRightPaddingConstantForTextFields)) .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             List {
+                
                 ForEach(assetModel.listArray) { model in
+                    NavigationLink(destination: AssetDetails()) {
                     HStack(alignment: .center, spacing: 10) {
                         if self.randomBool() == true {
                             StatusView() .background(Color.red)
@@ -63,6 +65,7 @@ struct ContentView: View {
                         }
                     } .lineSpacing(5)
                 }
+                }
             }
         }
         .navigationBarTitle(Text("Assets List"), displayMode: .large)
@@ -70,7 +73,7 @@ struct ContentView: View {
             VStack {
                 HStack {
                     
-                    NavigationLink(destination: AssetDetails()) {
+                    NavigationLink(destination: AddAsset()) {
                         Image("add")
                             .resizable()
                             .scaledToFit()
