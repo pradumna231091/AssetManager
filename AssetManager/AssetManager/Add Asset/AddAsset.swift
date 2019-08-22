@@ -50,9 +50,10 @@ struct AssetDetails:View {
                                    }.pickerStyle(SegmentedPickerStyle())
                                     .padding(.all)
                                    if selectedIndex == 0 {
-                                       AddAsset(isNewAsset: false)
+                                    AddAsset(isNewAsset: false)
                                    }else if selectedIndex == 1 {
                                       AddUser(allocStatus: allocationStatus)
+                                    
                         }
                         Button(action: {
                             print("Deallocate tapped!")
@@ -63,9 +64,10 @@ struct AssetDetails:View {
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .font(Font.body.bold())
-                        }else{
-                                AddAsset(isNewAsset: false)
                         
+                        }else{
+                        
+                        AddAsset(isNewAsset: false)
                         NavigationLink(destination:AddUser(allocStatus: allocationStatus)){
                         Text("Assign")
                             .frame(width: 150, height: 40, alignment: .center)
@@ -178,18 +180,18 @@ struct AddUser: View {
                 }.listRowInsets(EdgeInsets())
                 .navigationBarTitle(Text("User Details") , displayMode: .inline)
                 
-                if allocStatus == true{
-
-                }else{
+                if allocStatus != true{
                     Button(action: {
-                                                  print("save tapped!")
-                                              }) {
-                                                  Text("Save")
-                                                      .frame(width: 150, height: 40, alignment: .center)
-                                              }.background(Color.blue)
-                                              .cornerRadius(10)
-                                              .foregroundColor(.white)
-                                              .font(Font.body.bold())
+                        print("save tapped!")
+                        
+                    }) {
+                        Text("Save")
+                            .frame(width: 150, height: 40, alignment: .center)
+                        
+                    }.background(Color.blue)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .font(Font.body.bold())
                 }
            
             }.padding(.bottom, 5)
