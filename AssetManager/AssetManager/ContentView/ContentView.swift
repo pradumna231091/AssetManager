@@ -40,6 +40,7 @@ struct StatusView : View {
 struct ContentView: View {
     
     @State var name: String = ""
+    
     @State var update: Bool = false
     @State var assetModel = AssetModel()
 //    var allocStatus: Bool = true
@@ -48,7 +49,7 @@ struct ContentView: View {
         VStack {
             HStack {
                 TextField("Enter something to search...", text: $name) .padding(EdgeInsets(top: 0, leading: leftRightPaddingConstantForTextFields, bottom: 0, trailing: leftRightPaddingConstantForTextFields)) .textFieldStyle(RoundedBorderTextFieldStyle())
-            }
+                }.background(Color.white)
             List {
                  
                 ForEach(assetModel.listArray) { model in
@@ -73,7 +74,7 @@ struct ContentView: View {
                 }
                 }
             }
-        }
+            }//.colorInvert()
         .navigationBarTitle(Text("Assets List"), displayMode: .inline)
         .navigationBarItems(trailing:
             VStack {

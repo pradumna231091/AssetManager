@@ -78,7 +78,7 @@ struct AssetDetails:View {
                         }
                     }
                     
-            }.padding(.bottom, 5)
+                    }.padding(.bottom, 5).background(Color.black).colorInvert()
                
     }
 }
@@ -117,7 +117,7 @@ struct AddAsset: View {
                         Text(asset.title).frame(width: 150, alignment: .leading)
                         TextField("Enter \(asset.placeholder)", text: self.$asset_id_notifier)
                             .textFieldStyle(.roundedBorder)
-                        
+                        .colorInvert()
                     }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                     
                 }.listRowInsets(EdgeInsets())
@@ -159,7 +159,7 @@ struct AddAsset: View {
                 
                 }
                 
-            }.padding(.bottom, 5)
+            }.padding(.bottom, 5).colorInvert()
     }
 
 }
@@ -195,7 +195,7 @@ struct AddUser: View {
                         Text(asset.title).frame(width: 150, alignment: .leading)
                         TextField("Enter \(asset.placeholder)", text: self.$asset_id_notifier)
                             .textFieldStyle(.roundedBorder)
-                        
+                        .colorInvert()
                     }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                     
                 }.listRowInsets(EdgeInsets())
@@ -216,7 +216,7 @@ struct AddUser: View {
                     
                 }
            
-            }.padding(.bottom, 5)
+                }.padding(.bottom, 5).colorInvert()
             
     }
 }

@@ -93,6 +93,7 @@ struct DashboardView: View {
                 
             } .padding(.top, 20)
             .navigationBarTitle(Text("DashBoard"), displayMode: .inline)
+     
             
             
         //}
