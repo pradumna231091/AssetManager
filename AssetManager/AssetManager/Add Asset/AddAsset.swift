@@ -122,16 +122,16 @@ struct AddAsset: View {
                     
                 }.listRowInsets(EdgeInsets())
                     .navigationBarTitle(Text("Asset Details") , displayMode: .inline)
-                    .navigationBarItems(trailing:
-                        Button(action: {
-                            print("camera tapped!")
-                        }) {
-                            Image("camera")
-                                .resizable()
-                                .frame(width: 35, height: 35, alignment: .center)
-                                .clipped()
-                                .scaledToFit()
-                    })
+                    .navigationBarItems(trailing:                    
+                        NavigationLink(destination: ViewControllerWrapper().padding(.all, 0).edgesIgnoringSafeArea(.bottom)) {
+                        Image("camera")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .clipped()
+                    }
+
+                )
                 if isNewAsset == true{
 //                    Button(action: {
 //                            print("Save tapped!")

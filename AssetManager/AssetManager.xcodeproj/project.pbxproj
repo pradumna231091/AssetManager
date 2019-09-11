@@ -18,6 +18,7 @@
 		57B3D9392302DBFD00E25581 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B3D9382302DBFD00E25581 /* Assets.xcassets */; };
 		57B3D93C2302DBFD00E25581 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B3D93B2302DBFD00E25581 /* Preview Assets.xcassets */; };
 		57B3D93F2302DBFD00E25581 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B3D93D2302DBFD00E25581 /* LaunchScreen.storyboard */; };
+		57C4EB842328C74E0093AB56 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C4EB832328C74E0093AB56 /* CameraViewController.swift */; };
 		57D163BE230D5E7C002ED81F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D163BD230D5E7C002ED81F /* DashboardView.swift */; };
 		57EEA6D22303C5910045F49C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EEA6D12303C5910045F49C /* DatabaseManager.swift */; };
 		57EEA6D42303D2A30045F49C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57EEA6D32303D2A30045F49C /* Storyboard.storyboard */; };
@@ -39,6 +40,7 @@
 		57B3D93B2302DBFD00E25581 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		57B3D93E2302DBFD00E25581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57B3D9402302DBFD00E25581 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57C4EB832328C74E0093AB56 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		57D163BD230D5E7C002ED81F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		57EEA6D12303C5910045F49C /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		57EEA6D32303D2A30045F49C /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		57B3D92E2302DBFB00E25581 /* AssetManager */ = {
 			isa = PBXGroup;
 			children = (
+				57C4EB822328C72D0093AB56 /* CameraViewController */,
 				57EEA6D02303C5690045F49C /* Utilities */,
 				57B3D92F2302DBFB00E25581 /* AppDelegate.swift */,
 				57B3D9312302DBFB00E25581 /* SceneDelegate.swift */,
@@ -107,6 +110,14 @@
 				57B3D93B2302DBFD00E25581 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		57C4EB822328C72D0093AB56 /* CameraViewController */ = {
+			isa = PBXGroup;
+			children = (
+				57C4EB832328C74E0093AB56 /* CameraViewController.swift */,
+			);
+			path = CameraViewController;
 			sourceTree = "<group>";
 		};
 		57D163BF230D5FAE002ED81F /* Dashboard */ = {
@@ -239,6 +250,7 @@
 				1CCFAF562327C21200063701 /* AddNewAsset.swift in Sources */,
 				57B3D9352302DBFB00E25581 /* AssetManager.xcdatamodeld in Sources */,
 				57EEA6D22303C5910045F49C /* DatabaseManager.swift in Sources */,
+				57C4EB842328C74E0093AB56 /* CameraViewController.swift in Sources */,
 				57F5D38A230BD53A003D1992 /* RegisterView.swift in Sources */,
 				57D163BE230D5E7C002ED81F /* DashboardView.swift in Sources */,
 				0615740B230D0F4B002EEF89 /* AddAsset.swift in Sources */,
