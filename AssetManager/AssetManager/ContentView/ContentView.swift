@@ -48,8 +48,8 @@ struct ContentView: View {
         
         VStack {
             HStack {
-                TextField("Enter something to search...", text: $name) .padding(EdgeInsets(top: 0, leading: leftRightPaddingConstantForTextFields, bottom: 0, trailing: leftRightPaddingConstantForTextFields)) .textFieldStyle(RoundedBorderTextFieldStyle())
-                }.background(Color.white)
+                TextField("Enter something to search...", text: $name) .padding(EdgeInsets(top: 10, leading: leftRightPaddingConstantForTextFields, bottom: 0, trailing: leftRightPaddingConstantForTextFields)) .textFieldStyle(RoundedBorderTextFieldStyle())
+                }.colorInvert()//.background(Color.white)
             List {
                  
                 ForEach(assetModel.listArray) { model in

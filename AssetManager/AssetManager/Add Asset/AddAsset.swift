@@ -159,7 +159,7 @@ struct AddAsset: View {
                 
                 }
                 
-            }.padding(.bottom, 5).colorInvert()
+            }.padding(.bottom, 5).colorInvert().padding(.top,10)
     }
 
 }
@@ -216,7 +216,7 @@ struct AddUser: View {
                     
                 }
            
-                }.padding(.bottom, 5).colorInvert()
+                }.padding(.bottom, 10).padding(.top, 10).colorInvert()
             
     }
 }

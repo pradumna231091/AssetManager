@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0615740B230D0F4B002EEF89 /* AddAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0615740A230D0F4B002EEF89 /* AddAsset.swift */; };
+		1CCFAF562327C21200063701 /* AddNewAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCFAF552327C21200063701 /* AddNewAsset.swift */; };
 		574BA949230A791D0089352E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BA948230A791D0089352E /* LoginView.swift */; };
 		578744DE230D1B7700E6E140 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578744DD230D1B7700E6E140 /* AssetModel.swift */; };
 		57B3D9302302DBFB00E25581 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B3D92F2302DBFB00E25581 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		0615740A230D0F4B002EEF89 /* AddAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAsset.swift; sourceTree = "<group>"; };
+		1CCFAF552327C21200063701 /* AddNewAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAsset.swift; sourceTree = "<group>"; };
 		574BA948230A791D0089352E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		578744DD230D1B7700E6E140 /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 		57B3D92C2302DBFB00E25581 /* AssetManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				0615740A230D0F4B002EEF89 /* AddAsset.swift */,
+				1CCFAF552327C21200063701 /* AddNewAsset.swift */,
 			);
 			path = "Add Asset";
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				57EEA6D723042AFD0045F49C /* AssetCell.swift in Sources */,
 				574BA949230A791D0089352E /* LoginView.swift in Sources */,
 				57B3D9302302DBFB00E25581 /* AppDelegate.swift in Sources */,
+				1CCFAF562327C21200063701 /* AddNewAsset.swift in Sources */,
 				57B3D9352302DBFB00E25581 /* AssetManager.xcdatamodeld in Sources */,
 				57EEA6D22303C5910045F49C /* DatabaseManager.swift in Sources */,
 				57F5D38A230BD53A003D1992 /* RegisterView.swift in Sources */,
