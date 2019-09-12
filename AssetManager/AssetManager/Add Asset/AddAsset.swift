@@ -26,7 +26,7 @@ struct LabelTextField : View {
                 .font(.headline)
                 
                 .padding(.all)
-                .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
+                //.background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
         }
         .padding(.horizontal, 15)
     }
@@ -84,11 +84,46 @@ struct AssetDetails:View {
 }
 
 struct AddAsset: View {
+
+    @State var showImagePicker: Bool = false
+    @State var isCamera: Bool = false
+    @State var image: Image? = nil
+    
+    @State var showActionSheet: Bool = false
     
     @State var category_notifier: String = ""
     @State var asset_id_notifier: String = ""
     @State var isNewAsset:Bool 
      @State private var showingAlert:Bool = false
+    
+    var actionSheet: ActionSheet {
+      ActionSheet(title: Text("Choose a photo"), message: Text("Please choose a photo"), buttons: [
+            .default(Text("Camera"), action: {
+                withAnimation {
+                    self.isCamera = true
+                self.showImagePicker.toggle()
+                 
+                }
+            }),
+            .default(Text("Gallery"), action: {
+                withAnimation {
+                    self.showImagePicker.toggle()
+//                    updateUIViewController
+                }
+            }),
+            .destructive(Text("Cancel"))
+        ])
+    }
+                
+//    Button(action: {
+//        withAnimation {
+//            self.showImagePicker.toggle()
+//        }
+//    }) {
+//        Text("Show image picker")
+//    }
+    
+    
     
     @State var assetArr : [AddAsset_User_Model] = [
         AddAsset_User_Model( title: "Category", text: "", placeholder: "category",id: 0),
@@ -116,22 +151,34 @@ struct AddAsset: View {
                     HStack(alignment: .center, spacing: 10){
                         Text(asset.title).frame(width: 150, alignment: .leading)
                         TextField("Enter \(asset.placeholder)", text: self.$asset_id_notifier)
-                            .textFieldStyle(.roundedBorder)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                         .colorInvert()
                     }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                     
                 }.listRowInsets(EdgeInsets())
                     .navigationBarTitle(Text("Asset Details") , displayMode: .inline)
-                    .navigationBarItems(trailing:                    
-                        NavigationLink(destination: ViewControllerWrapper().padding(.all, 0).edgesIgnoringSafeArea(.bottom)) {
+                    .navigationBarItems(trailing:
+                       Button(action: {
+                        //print("camera tapped!")
+                        withAnimation{
+                         //   self.showImagePicker.toggle()
+                            self.showActionSheet.toggle()
+                        }
+                       }) {
                         Image("camera")
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 25, height: 25)
+                            .frame(width: 35, height: 35, alignment: .center)
                             .clipped()
-                    }
-
-                )
+                            .scaledToFit()
+                        
+                    }).actionSheet(isPresented: $showActionSheet, content: {self.actionSheet})
+                image?.resizable().frame(width: 100, height: 100)
+                               
+                if (showImagePicker) {
+                   // ImagePicker(isShown: $showImagePicker, image: $image )
+                ImagePicker(isCamera: $isCamera, isShown: $showImagePicker, image: $image)
+                    
+                           }
                 if isNewAsset == true{
 //                    Button(action: {
 //                            print("Save tapped!")
@@ -164,7 +211,6 @@ struct AddAsset: View {
 
 }
 
-
 struct AddUser: View {
     
     @State var category_notifier: String = ""
@@ -194,7 +240,7 @@ struct AddUser: View {
                     HStack(alignment: .center, spacing: 10){
                         Text(asset.title).frame(width: 150, alignment: .leading)
                         TextField("Enter \(asset.placeholder)", text: self.$asset_id_notifier)
-                            .textFieldStyle(.roundedBorder)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                         .colorInvert()
                     }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                     
