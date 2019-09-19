@@ -17,18 +17,19 @@ struct AddAsset_User_Model:Identifiable {
 }
 
 struct LabelTextField : View {
-    var label: String
-    var placeHolder: String
+      var label: String
+     var placeHolder: String
+     @State var notifier :String = ""
     
     var body: some View {
-        HStack(alignment: .center) {
-            Text(label)
-                .font(.headline)
-                
-                .padding(.all)
-                //.background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0), cornerRadius: 5.0)
-        }
-        .padding(.horizontal, 15)
+        HStack(alignment: .center, spacing: 10){
+            Text(label).frame(width: 150, alignment: .leading)
+            TextField(placeHolder, text: self.$notifier)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            .colorInvert()
+        }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+        
+        //.padding(.horizontal, 15)
     }
 }
 
@@ -92,7 +93,19 @@ struct AddAsset: View {
     @State var showActionSheet: Bool = false
     
     @State var category_notifier: String = ""
-    @State var asset_id_notifier: String = ""
+    @State var asset_ID_notifier: String = ""
+    @State var asset_Code_notifier: String = ""
+    @State var building_notifier: String = ""
+    @State var host_Name_notifier: String = ""
+    @State var manufacturer_notifier: String = ""
+    @State var model_No_notifier: String = ""
+    @State var serial_No_notifier: String = ""
+    @State var rAM_Size_notifier: String = ""
+    @State var rAM_Qty_notifier: String = ""
+    @State var hDD_Size_notifier: String = ""
+    @State var description_notifier: String = ""
+    @State var warranty_notifier: String = ""
+    @State var invoice_No_notifier: String = ""
     @State var isNewAsset:Bool 
      @State private var showingAlert:Bool = false
     
@@ -114,48 +127,31 @@ struct AddAsset: View {
             .destructive(Text("Cancel"))
         ])
     }
-                
-//    Button(action: {
-//        withAnimation {
-//            self.showImagePicker.toggle()
-//        }
-//    }) {
-//        Text("Show image picker")
-//    }
-    
-    
-    
-    @State var assetArr : [AddAsset_User_Model] = [
-        AddAsset_User_Model( title: "Category", text: "", placeholder: "category",id: 0),
-        AddAsset_User_Model(title: "Asset ID", text: "", placeholder: "AssetID",id: 1),
-        AddAsset_User_Model( title: "Asset code", text: "", placeholder: "AssetCode",id: 2),
-        AddAsset_User_Model( title: "Building", text: "", placeholder: "Building",id: 3),
-        AddAsset_User_Model( title: "Host name", text: "", placeholder: "HostName",id: 4),
-        AddAsset_User_Model( title: "Manufacturer", text: "", placeholder: "Manufacturer",id: 5),
-        AddAsset_User_Model(title: "Model No.", text: "", placeholder: "ModelNo",id: 6),
-        AddAsset_User_Model( title: "Serial number", text: "", placeholder: "SerialNumber",id: 7),
-        AddAsset_User_Model( title: "RAM Size", text: "", placeholder: "RAMSize",id: 8),
-        AddAsset_User_Model( title: "RAM Qty.", text: "", placeholder: "RAMQty",id: 9),
-        AddAsset_User_Model( title: "HDD Size", text: "", placeholder: "HDDSize",id: 10),
-        AddAsset_User_Model( title: "Description details", text: "", placeholder: "DescriptionDetails",id: 11),
-        AddAsset_User_Model( title: "Warranty startdate", text: "", placeholder: "WarrantyStartDate",id: 12),
-        AddAsset_User_Model( title: "Invoice No.", text: "", placeholder: "InvoiceNo",id: 13)
-        
-    ]
    
     var body: some View{
             
             VStack {
-              
-                List(assetArr) { asset in
-                    HStack(alignment: .center, spacing: 10){
-                        Text(asset.title).frame(width: 150, alignment: .leading)
-                        TextField("Enter \(asset.placeholder)", text: self.$asset_id_notifier)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .colorInvert()
-                    }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                List{
+               
+                LabelTextField(label: "Category", placeHolder: "Enter Category", notifier:self.category_notifier)
+                LabelTextField(label: "Asset ID", placeHolder: "Enter Asset ID", notifier:self.asset_ID_notifier)
+                LabelTextField(label: "Asset Code", placeHolder: "Enter Asset Code", notifier:self.asset_Code_notifier)
+                LabelTextField(label: "Building", placeHolder: "Enter Building No.", notifier:self.building_notifier)
+                LabelTextField(label: "Host name", placeHolder: "Enter Host name", notifier:self.host_Name_notifier)
+                LabelTextField(label: "Manufacturer", placeHolder: "Enter Manufacturer", notifier:self.manufacturer_notifier)
+                LabelTextField(label: "Model No.", placeHolder: "Enter Model No.", notifier:self.model_No_notifier)
+                LabelTextField(label: "Serial number", placeHolder: "Enter Serial number", notifier:self.serial_No_notifier)
                     
-                }.listRowInsets(EdgeInsets())
+                    Group{
+                LabelTextField(label: "RAM Size", placeHolder: "Enter RAM Size", notifier:self.rAM_Size_notifier)
+                LabelTextField(label: "RAM Qty.", placeHolder: "Enter RAM Qty.", notifier:self.rAM_Qty_notifier)
+                LabelTextField(label: "HDD Size", placeHolder: "Enter HDD Size", notifier:self.hDD_Size_notifier)
+                LabelTextField(label: "Description details", placeHolder: "Enter Description details", notifier:self.description_notifier)
+                LabelTextField(label: "Warranty Start Date", placeHolder: "Enter Warranty Start Date", notifier:self.warranty_notifier)
+                LabelTextField(label: "Invoice No.", placeHolder: "Enter Invoice No.", notifier:self.invoice_No_notifier)
+                }
+                    
+                 }.listRowInsets(EdgeInsets())
                     .navigationBarTitle(Text("Asset Details") , displayMode: .inline)
                     .navigationBarItems(trailing:
                        Button(action: {
@@ -213,39 +209,31 @@ struct AddAsset: View {
 
 struct AddUser: View {
     
-    @State var category_notifier: String = ""
-    @State var asset_id_notifier: String = ""
-    @State var allocStatus:Bool
-   
-    
-    @State var userArr : [AddAsset_User_Model] = [
-        AddAsset_User_Model( title: "Emp Name", text: "", placeholder: "Emp Name",id: 0),
-        AddAsset_User_Model(title: "Emp no", text: "", placeholder: "Emp no",id: 1),
-        AddAsset_User_Model( title: "Allocation Date", text: "", placeholder: "Allocation Date",id: 2),
-        AddAsset_User_Model( title: "Floor", text: "", placeholder: "Floor",id: 3),
-        AddAsset_User_Model( title: "Location", text: "", placeholder: "Location",id: 4),
-        AddAsset_User_Model( title: "Cubicle", text: "", placeholder: "Customer Name",id: 5),
-        AddAsset_User_Model( title: "Customer Name", text: "", placeholder: "Customer Name",id: 6),
-               AddAsset_User_Model( title: "Mobile number", text: "", placeholder: "Mobile number",id: 7)
-        
-    ]
-
-    
-    
+     @State var category_notifier: String = ""
+     @State var emp_Name_notifier: String = ""
+     @State var emp_Num_notifier: String = ""
+     @State var alloc_Date_notifier: String = ""
+     @State var floor_notifier: String = ""
+     @State var location_notifier: String = ""
+     @State var cubicle_notifier: String = ""
+     @State var customer_Name_notifier: String = ""
+     @State var mobile_Num_notifier: String = ""
+     @State var allocStatus:Bool
     
     var body: some View{
-
             VStack {
-                List(userArr) { asset in
-                    HStack(alignment: .center, spacing: 10){
-                        Text(asset.title).frame(width: 150, alignment: .leading)
-                        TextField("Enter \(asset.placeholder)", text: self.$asset_id_notifier)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .colorInvert()
-                    }.padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                    
-                }.listRowInsets(EdgeInsets())
+                List{
+                LabelTextField(label: "Name", placeHolder: "Enter Employee name", notifier:self.emp_Name_notifier)
+                LabelTextField(label: "Emp ID", placeHolder: "Enter Employee ID", notifier:self.emp_Num_notifier)
+                LabelTextField(label: "Allocation Date", placeHolder: "Enter allocation date", notifier:self.alloc_Date_notifier)
+                LabelTextField(label: "Floor", placeHolder: "Enter floor no", notifier:self.floor_notifier)
+                LabelTextField(label: "Location", placeHolder: "Enter Location", notifier:self.location_notifier)
+                LabelTextField(label: "Cubicle", placeHolder: "Enter Cubicle", notifier:self.cubicle_notifier)
+                LabelTextField(label: "Customer Name", placeHolder: "Enter Customer name", notifier:self.customer_Name_notifier)
+                LabelTextField(label: "Mobile Number", placeHolder: "Enter Mobile Number", notifier:self.mobile_Num_notifier)
+                 }.listRowInsets(EdgeInsets())
                 .navigationBarTitle(Text("User Details") , displayMode: .inline)
+        
                 
                 if allocStatus != true{
                     Button(action: {
@@ -266,17 +254,6 @@ struct AddUser: View {
             
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 //#if DEBUG
 //struct AddAsset_Previews: PreviewProvider {
