@@ -40,6 +40,9 @@ struct AssetDetails:View {
         @State var asset_id_notifier: String = ""
         @State var selectedIndex: Int = 0
         @State var allocationStatus:Bool
+    
+    @State var isNew :Bool 
+    
         var body: some View{
             
                 VStack {

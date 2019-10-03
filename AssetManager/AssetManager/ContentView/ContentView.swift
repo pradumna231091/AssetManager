@@ -61,7 +61,7 @@ struct ContentView: View {
                         } else {
                             StatusView() .background(Color.green)
                         }
-                        NavigationLink(destination: AssetDetails(allocationStatus: model.allocStatus)) {
+                       NavigationLink(destination: AssetDetails(allocationStatus: model.allocStatus,isNew: false)) {
                             
                         VStack(alignment: .leading, spacing: 4) {
                             Text("\(model.modelNo)") .font(.title)
@@ -80,7 +80,10 @@ struct ContentView: View {
             VStack {
                 HStack {
                     
-                    NavigationLink(destination: AddAsset(isNewAsset: true)) {
+                    //NavigationLink(destination: AddAsset(isNewAsset: true)) {
+
+NavigationLink(destination: AssetDetails(allocationStatus:false,isNew: true)) {
+
                         Image("add")
                             .resizable()
                             .scaledToFit()
